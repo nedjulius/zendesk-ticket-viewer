@@ -1,0 +1,8 @@
+{
+  "short_name": "Zendesk ticketing system",
+  "name": "Zendesk ticketing system for the coding challenge 2021",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
