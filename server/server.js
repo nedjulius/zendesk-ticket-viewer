@@ -1,13 +1,8 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+const app = require('./app');
+const {PORT} = require('./constants/app');
 
-app.get('/', (req, res) => {
-  res.send('Hello! Zendesk coding challenge!');
-});
-
-const server = app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+const server = app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });
 
 const close = () => server.close();
