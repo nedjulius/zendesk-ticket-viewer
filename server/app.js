@@ -12,16 +12,16 @@ app.use(express.json());
 
 app.get('/tickets/:id', async (req, res) => {
   const data = await zendeskService().getTicket(req.params.id);
-  
+
   res.send(data);
 });
 
 app.get('/tickets', async (req, res) => {
   const data = await zendeskService().getTicketList(req.query.page);
-  
+
   res.send(data);
 });
 
-app.use(errorHandler)
+app.use(errorHandler);
 
-module.exports = app
+module.exports = app;

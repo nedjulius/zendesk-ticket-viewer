@@ -7,9 +7,9 @@ class RequestService {
     this.options = {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Basic ${AUTH_TOKEN}`,
-      }
-    }
+        Authorization: `Basic ${AUTH_TOKEN}`,
+      },
+    };
   }
 
   constructUrl(url) {
@@ -22,7 +22,10 @@ class RequestService {
 
   async request(method, url) {
     try {
-      const response = await fetch(this.constructUrl(url), {...this.options, method});
+      const response = await fetch(this.constructUrl(url), {
+        ...this.options,
+        method,
+      });
       const data = await response.json();
 
       return data;

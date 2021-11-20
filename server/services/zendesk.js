@@ -3,9 +3,11 @@ const {requestService} = require('./request');
 
 class ZendeskService {
   async getTicketList(page) {
-    const data = await requestService().get(`/api/v2/tickets?per_page=${PAGE_SIZE}&page=${page}`);
+    const data = await requestService().get(
+      `/api/v2/tickets?per_page=${PAGE_SIZE}&page=${page}`
+    );
 
-    return {tickets: data.tickets, count: data.count}
+    return {tickets: data.tickets, count: data.count};
   }
 
   async getTicket(id) {
@@ -17,4 +19,4 @@ class ZendeskService {
 
 module.exports = {
   zendeskService: () => new ZendeskService(),
-}
+};
