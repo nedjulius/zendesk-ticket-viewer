@@ -22,4 +22,12 @@ describe('ZendeskService test', () => {
     expect(data.tickets.length).to.equal(PAGE_SIZE);
     expect(!!data.count).to.equal(true);
   });
+
+  it('should fetch ticket list even if the given page is non-existant', async () => {
+    const page = 9999999;
+    const data = await zendeskService().getTicketList(page);
+
+    expect(data.tickets.length).to.equal(0);
+    expect(!!data.count).to.equal(true);
+  });
 });
