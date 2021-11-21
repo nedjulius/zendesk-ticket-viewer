@@ -5,9 +5,9 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon ./server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write \"**/*.+(js|jsx|json|css)\"",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "mocha **/*.test.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,9 +19,11 @@
     "node-fetch": "^2.6.6"
   },
   "devDependencies": {
+    "chai": "^4.3.4",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "mocha": "^9.1.3",
     "nodemon": "^2.0.15",
     "prettier": "^2.4.1"
   }
