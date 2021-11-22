@@ -1,0 +1,15 @@
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #dcdde1;
+  color: #353b48;
+  flex-wrap: wrap;
+}
+
+.description {
+  margin-bottom: 5px;
+}

@@ -66,3 +66,5 @@ export interface GetTicketsResponse {
   tickets: Ticket[];
   count: number;
 }
+
+export type GetTicketResponse = Ticket;

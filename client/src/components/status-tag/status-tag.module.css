@@ -1,0 +1,31 @@
+.statusTag {
+  padding: 2px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+}
+
+.open {
+  background-color: #6ab04c;
+}
+
+.closed {
+  background-color: #eb4d4b;
+}
+
+.new {
+  background-color: #7ed6df;
+}
+
+.pending {
+  background-color: #686de0;
+}
+
+.hold {
+  background-color: #95afc0;
+}
+
+.solved {
+  background-color: #535c68;
+}
