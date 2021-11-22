@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import {TicketStatus} from '../../../lib/typings';
 import {TicketItemProps} from './interfaces';
 import styles from './ticket-item.module.css';
@@ -30,7 +31,7 @@ export const TicketItem: React.FC<TicketItemProps> = React.memo(
     };
 
     return (
-      <div className={styles.ticketItemContainer}>
+      <Link to={`/ticket/${id}`} className={styles.ticketItemContainer}>
         <div className={styles.essentialData}>
           <div className={styles.idTag}>{id}</div>
           <div className={styles.subjectAndDateTag}>
@@ -43,7 +44,7 @@ export const TicketItem: React.FC<TicketItemProps> = React.memo(
           </div>
         </div>
         <div className={styles.tagsTag}>Tags: {mapTags}</div>
-      </div>
+      </Link>
     );
   }
 );
