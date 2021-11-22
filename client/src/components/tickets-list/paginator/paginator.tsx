@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {PAGE_SIZE} from '../../../lib/constants';
 import {PaginatorProps} from './interfaces';
 import styles from './paginator.module.css';
@@ -18,9 +18,7 @@ export const Paginator: React.FC<PaginatorProps> = ({
 
     return (
       <Link to={`/?page=${pageNumber}`} key={pageNumber}>
-        <li className={listItemClassName}>
-            {pageNumber}
-        </li>
+        <li className={listItemClassName}>{pageNumber}</li>
       </Link>
     );
   });

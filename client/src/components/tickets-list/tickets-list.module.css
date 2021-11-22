@@ -1,0 +1,16 @@
+.errorMessage {
+  width: 100%;
+  border-radius: 3px;
+  background-color: #ff7979;
+  border: 1px solid #eb4d4b;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.ticketCount {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}

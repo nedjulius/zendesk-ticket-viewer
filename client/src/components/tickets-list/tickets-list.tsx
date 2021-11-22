@@ -3,6 +3,8 @@ import {Ticket} from '../../lib/typings';
 import {SERVER_URL} from '../../lib/constants';
 import {useQuery} from '../../lib/hooks/use-query';
 import {Paginator} from './paginator';
+import {TicketItem} from './ticket-item';
+import styles from './tickets-list.module.css';
 
 export const TicketsList: React.FC = () => {
   const query = useQuery();
@@ -16,11 +18,14 @@ export const TicketsList: React.FC = () => {
   const fetchAPI = async () => {
     try {
       setIsLoading(true);
-      const res = await fetch(`${SERVER_URL}/tickets?page=${currentPage}`, {method: 'GET'});
+      const res = await fetch(`${SERVER_URL}/tickets?page=${currentPage}`, {
+        method: 'GET',
+      });
       const data = await res.json();
       setTicketCount(data.count);
       setTickets(data.tickets);
     } catch (e) {
+      console.error(e)
       setIsError(true);
     } finally {
       setIsLoading(false);
@@ -31,23 +36,28 @@ export const TicketsList: React.FC = () => {
     fetchAPI();
   }, [currentPage]);
 
-  const mapTickets = tickets?.map(({id, subject}) => {
+  const mapTickets = tickets?.map(({id, status, subject, created_at, tags}) => {
     return (
-      <p key={id}>
-        {id}: {subject}
-      </p>
+      <TicketItem
+        key={id}
+        id={id}
+        status={status}
+        subject={subject}
+        createdAt={created_at}
+        tags={tags}
+      />
     );
   });
 
   if (isError) {
-    <p>An error occured</p>;
+    return <div className={styles.errorMessage}>An unexpected error occurred!</div>;
   }
 
   return isLoading ? (
     <p>Loading...</p>
   ) : (
     <>
-      <div>Count {ticketCount}</div>
+      <div className={styles.ticketCount}>Total tickets found: {ticketCount}</div>
       <div>{mapTickets}</div>
       <Paginator currentPage={currentPage} itemCount={ticketCount} />
     </>
