@@ -1,0 +1,25 @@
+.selectedPage {
+  background-color: #353b48;
+  color: white;
+}
+
+.pagesList {
+  width: max-content;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px auto;
+}
+
+.pagesListItem {
+  cursor: pointer;
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: 0.1s;
+}
+
+.pagesListItem:hover {
+  background-color: #dddddd;
+  transition: 0.1s;
+}
