@@ -9,6 +9,7 @@
   border: 1px solid #f5f6fa;
   padding: 10px;
   transition: 0.1s;
+  flex-wrap: wrap;
 }
 
 .essentialData {

@@ -5,6 +5,7 @@ import {useQuery} from '../../lib/hooks/use-query';
 import {Paginator} from './paginator';
 import {TicketItem} from './ticket-item';
 import {ErrorMessage} from '../error-message';
+import {Loader} from '../loader';
 import styles from './tickets-list.module.css';
 
 export const TicketsList: React.FC = () => {
@@ -54,15 +55,13 @@ export const TicketsList: React.FC = () => {
     return <ErrorMessage />;
   }
 
-  return isLoading ? (
-    <p>Loading...</p>
-  ) : (
+  return (
     <>
-      <div className={styles.ticketCount}>
+      {!!ticketCount && <div className={styles.ticketCount}>
         Total tickets found: {ticketCount}
-      </div>
-      <div>{mapTickets}</div>
-      <Paginator currentPage={currentPage} itemCount={ticketCount} />
+      </div>}
+      {isLoading ? <Loader /> : (!tickets.length ? <p>No tickets found.</p> : mapTickets)}
+      {!!ticketCount && <Paginator currentPage={currentPage} itemCount={ticketCount} />}
     </>
   );
 };
