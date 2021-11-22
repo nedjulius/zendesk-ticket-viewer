@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import {Header} from './header';
 import {TicketsList} from '../tickets-list';
 import {NotFound} from '../not-found';
@@ -22,4 +18,4 @@ export const App: React.FC = () => (
       </Router>
     </main>
   </>
-)
+);
