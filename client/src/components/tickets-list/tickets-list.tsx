@@ -6,10 +6,13 @@ import {ErrorMessage} from '../error-message';
 import {Loader} from '../loader';
 import styles from './tickets-list.module.css';
 import {useTickets} from '../../lib/hooks/use-tickets';
+import {useScrollToTop} from '../../lib/hooks/use-scroll-to-top';
 
 export const TicketsList: React.FC = () => {
   const currentPage = Number(useQuery().get('page') ?? 1);
   const {data, isLoading, isError} = useTickets(currentPage);
+
+  useScrollToTop([isLoading]);
 
   const ticketCount = data?.count ?? 0;
   const tickets = data?.tickets ?? [];
@@ -33,7 +36,7 @@ export const TicketsList: React.FC = () => {
     <>
       {!!ticketCount && (
         <div className={styles.ticketCount}>
-          Total tickets found: {ticketCount}
+          Total tickets: {ticketCount}, showing: {tickets.length}
         </div>
       )}
       {isLoading ? (
