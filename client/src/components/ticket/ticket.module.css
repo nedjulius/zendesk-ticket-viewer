@@ -13,3 +13,14 @@
 .description {
   margin-bottom: 5px;
 }
+
+.goBackButton {
+  cursor: pointer;
+  background-color: #dcdde1;
+  outline: none;
+  border: none;
+  font-size: 14px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 3px;
+}
