@@ -25,7 +25,7 @@ export const TicketsList: React.FC = () => {
       setTicketCount(data.count);
       setTickets(data.tickets);
     } catch (e) {
-      console.error(e)
+      console.error(e);
       setIsError(true);
     } finally {
       setIsLoading(false);
@@ -50,14 +50,18 @@ export const TicketsList: React.FC = () => {
   });
 
   if (isError) {
-    return <div className={styles.errorMessage}>An unexpected error occurred!</div>;
+    return (
+      <div className={styles.errorMessage}>An unexpected error occurred!</div>
+    );
   }
 
   return isLoading ? (
     <p>Loading...</p>
   ) : (
     <>
-      <div className={styles.ticketCount}>Total tickets found: {ticketCount}</div>
+      <div className={styles.ticketCount}>
+        Total tickets found: {ticketCount}
+      </div>
       <div>{mapTickets}</div>
       <Paginator currentPage={currentPage} itemCount={ticketCount} />
     </>
