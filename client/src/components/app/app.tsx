@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import {Header} from './header';
 import {TicketsList} from '../tickets-list';
 import {NotFound} from '../not-found';
+import {Footer} from './footer';
 import styles from './app.module.css';
 
 export const App: React.FC = () => (
@@ -17,5 +18,6 @@ export const App: React.FC = () => (
         </Routes>
       </Router>
     </main>
+    <Footer />
   </>
 );

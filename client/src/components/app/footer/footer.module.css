@@ -1,0 +1,23 @@
+.footer {
+  width: 1000px;
+  margin: 0px auto;
+  height: 40px;
+  background-color: #dcdde1;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+
+.footer > a {
+  text-decoration: none;
+  padding-left: 2px;
+}
+
+@media (max-width: 1000px) {
+  .footer {
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+}

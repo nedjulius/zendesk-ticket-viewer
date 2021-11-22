@@ -57,11 +57,21 @@ export const TicketsList: React.FC = () => {
 
   return (
     <>
-      {!!ticketCount && <div className={styles.ticketCount}>
-        Total tickets found: {ticketCount}
-      </div>}
-      {isLoading ? <Loader /> : (!tickets.length ? <p>No tickets found.</p> : mapTickets)}
-      {!!ticketCount && <Paginator currentPage={currentPage} itemCount={ticketCount} />}
+      {!!ticketCount && (
+        <div className={styles.ticketCount}>
+          Total tickets found: {ticketCount}
+        </div>
+      )}
+      {isLoading ? (
+        <Loader />
+      ) : !tickets.length ? (
+        <p>No tickets found.</p>
+      ) : (
+        mapTickets
+      )}
+      {!!ticketCount && (
+        <Paginator currentPage={currentPage} itemCount={ticketCount} />
+      )}
     </>
   );
 };
