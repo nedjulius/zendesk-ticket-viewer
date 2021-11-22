@@ -4,6 +4,7 @@ import {SERVER_URL} from '../../lib/constants';
 import {useQuery} from '../../lib/hooks/use-query';
 import {Paginator} from './paginator';
 import {TicketItem} from './ticket-item';
+import {ErrorMessage} from '../error-message';
 import styles from './tickets-list.module.css';
 
 export const TicketsList: React.FC = () => {
@@ -50,9 +51,7 @@ export const TicketsList: React.FC = () => {
   });
 
   if (isError) {
-    return (
-      <div className={styles.errorMessage}>An unexpected error occurred!</div>
-    );
+    return <ErrorMessage />;
   }
 
   return isLoading ? (
