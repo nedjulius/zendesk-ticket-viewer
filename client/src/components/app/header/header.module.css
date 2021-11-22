@@ -9,6 +9,10 @@
   margin: 0px auto;
 }
 
+.headerStrip > a {
+  text-decoration: none;
+}
+
 .heading {
   font-size: 20px;
   font-weight: 500;
