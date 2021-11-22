@@ -1,55 +1,29 @@
-import React, {useEffect, useState} from 'react';
-import {Ticket} from '../../lib/typings';
-import {SERVER_URL} from '../../lib/constants';
+import React from 'react';
 import {useQuery} from '../../lib/hooks/use-query';
 import {Paginator} from './paginator';
 import {TicketItem} from './ticket-item';
 import {ErrorMessage} from '../error-message';
 import {Loader} from '../loader';
 import styles from './tickets-list.module.css';
+import {useTickets} from '../../lib/hooks/use-tickets';
 
 export const TicketsList: React.FC = () => {
-  const query = useQuery();
-  const [tickets, setTickets] = useState<Ticket[]>([]);
-  const [ticketCount, setTicketCount] = useState<number>(0);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [isError, setIsError] = useState<boolean>(false);
+  const currentPage = Number(useQuery().get('page') ?? 1);
+  const {data, isLoading, isError} = useTickets(currentPage);
 
-  const currentPage = Number(query.get('page') ?? 1);
+  const ticketCount = data?.count ?? 0;
+  const tickets = data?.tickets ?? [];
 
-  const fetchAPI = async () => {
-    try {
-      setIsLoading(true);
-      const res = await fetch(`${SERVER_URL}/tickets?page=${currentPage}`, {
-        method: 'GET',
-      });
-      const data = await res.json();
-      setTicketCount(data.count);
-      setTickets(data.tickets);
-    } catch (e) {
-      console.error(e);
-      setIsError(true);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchAPI();
-  }, [currentPage]);
-
-  const mapTickets = tickets?.map(({id, status, subject, created_at, tags}) => {
-    return (
-      <TicketItem
-        key={id}
-        id={id}
-        status={status}
-        subject={subject}
-        createdAt={created_at}
-        tags={tags}
-      />
-    );
-  });
+  const mapTickets = tickets.map(({id, status, subject, created_at, tags}) => (
+    <TicketItem
+      key={id}
+      id={id}
+      status={status}
+      subject={subject}
+      createdAt={created_at}
+      tags={tags}
+    />
+  ));
 
   if (isError) {
     return <ErrorMessage />;
