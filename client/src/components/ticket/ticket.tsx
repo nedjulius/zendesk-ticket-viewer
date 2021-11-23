@@ -31,7 +31,7 @@ export const Ticket: React.FC = () => {
     return <Loader />;
   }
 
-  const fieldMap = [
+  const mapTicketFields = [
     {
       title: 'ID',
       testID: testIDs.TICKET_ROW_ITEM_ID,
@@ -92,7 +92,7 @@ export const Ticket: React.FC = () => {
 
   return (
     <>
-      {fieldMap}
+      {mapTicketFields}
       {shouldShowBackButton ? (
         <button
           onClick={goBack}
