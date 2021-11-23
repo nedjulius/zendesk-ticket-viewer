@@ -95,7 +95,7 @@ describe('TicketsList', () => {
   it('should paginate through results without exceptions', async () => {
     const totalCount = 26;
     const firstPageRes = {
-      tickets: Array.from(Array(26).keys()).map((val) => ({
+      tickets: Array.from(Array(totalCount).keys()).map((val) => ({
         ...response.tickets[0],
         id: val,
       })),
