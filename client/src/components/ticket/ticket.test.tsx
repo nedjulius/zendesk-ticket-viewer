@@ -43,7 +43,7 @@ const pushWindowHistoryId = () => window.history.pushState({idx: 10}, 'state');
 
 const clearWindowHistory = () => window.history.replaceState({}, 'state');
 
-describe('Ticket view', () => {
+describe('Ticket', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -51,6 +51,8 @@ describe('Ticket view', () => {
   it('should correctly render server response without any exceptions', async () => {
     mockFetch(response);
     renderIndividualTicketView();
+
+    expect(getByTestId(testIDs.LOADER)).toBeDefined();
 
     await waitFor(() => {
       expect(getByTestId(testIDs.TICKET_ROW_ITEM_ID)).toHaveTextContent(
@@ -88,6 +90,8 @@ describe('Ticket view', () => {
     mockFetch({}, true);
     renderIndividualTicketView();
 
+    expect(getByTestId(testIDs.LOADER)).toBeDefined();
+
     await waitFor(() => {
       expect(getByTestId(testIDs.ERROR_MESSAGE)).toBeDefined();
     });
@@ -97,6 +101,8 @@ describe('Ticket view', () => {
     pushWindowHistoryId();
     mockFetch(response);
     renderIndividualTicketView();
+
+    expect(getByTestId(testIDs.LOADER)).toBeDefined();
 
     await waitFor(() => {
       expect(getByTestId(testIDs.TICKET_GO_BACK_BUTTON)).toBeDefined();
@@ -113,6 +119,8 @@ describe('Ticket view', () => {
 
     mockFetch({});
     renderIndividualTicketView();
+
+    expect(getByTestId(testIDs.LOADER)).toBeDefined();
 
     await waitFor(() => {
       expect(getByTestId(testIDs.TICKET_ROW_ITEM_ID)).toHaveTextContent(
