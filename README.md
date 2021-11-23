@@ -11,13 +11,13 @@ The solution consists of a small _Node.js_ server that proxies requests to Zende
 In the `server` directory:
 1. Run `npm install` to install all dependencies
 2. Add `.env` file in the root of `server`, that contains the following environment variables:
-  - `USERNAME=...` - username of Zendesk agent account
-  - `PASSWORD=...` - password of Zendesk agent account
+  * `USERNAME=...` - username of Zendesk agent account
+  * `PASSWORD=...` - password of Zendesk agent account
 3. Run `npm run dev` to run the application in the development mode (alternatively, you can run `npm start`)
 
 Additional information:
-- You can change _Zendesk_ API URI in `server/constants/app` (`BASE_URL`)
-- Run `npm test` in the `server` directory to run server tests
+* You can change _Zendesk_ API URI in `server/constants/app` (`BASE_URL`)
+* Run `npm test` in the `server` directory to run server tests
 
 ## Client setup
 
@@ -26,7 +26,7 @@ In the `client` directory:
 2. Run `npm start` to run the application in the development mode
 
 Additional information:
-- Run `npm test` in the `client` directory to run client tests
+* Run `npm test` in the `client` directory to run client tests
 
 ## Running the application
 
