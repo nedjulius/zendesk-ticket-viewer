@@ -4,6 +4,6 @@ import testIDs from '../../lib/test-ids';
 
 export const ErrorMessage: React.FC = () => (
   <div className={styles.errorMessage} data-testid={testIDs.ERROR_MESSAGE}>
-    An unexpected error occurred!
+    We are very sorry! An unexpected error occurred!
   </div>
 );
