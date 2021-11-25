@@ -1,6 +1,6 @@
 # Zendesk Ticket Viewer server
 
-This is a simple _Node.js_ proxy server for the _Zendesk Ticket Viewer_.
+This is a simple _Node.js_ proxy server for the _Zendesk Ticket Viewer_. Built with _Express.js_ framework, uses _node-fetch_ for proxying.
 
 ## Setup
 
