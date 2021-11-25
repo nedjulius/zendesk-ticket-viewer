@@ -6,8 +6,8 @@ This is a simple _Node.js_ proxy server for the _Zendesk Ticket Viewer_.
 
 1. Run `npm install` to install all dependencies
 2. Add `.env` file in the root, that contains the following environment variables:
-    * `USERNAME=...` - email of _Zendesk_ agent account
-    * `PASSWORD=...` - password of _Zendesk_ agent account
+    * `END_USER_EMAIL=...` - email of _Zendesk_ end user account
+    * `API_TOKEN=...` - _Zendesk_ API token (issued via Admin center)
 3. Run `npm run dev` to run the application in the development mode
 
 Additional information:
